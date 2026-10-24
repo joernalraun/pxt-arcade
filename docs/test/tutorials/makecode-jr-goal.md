@@ -6,7 +6,7 @@
 Gather all the bubbles!
 
 
-## Exercise 1
+## Excercise 1
 
 Build a **sequence** of code to help the dino collect both bubbles.   
 

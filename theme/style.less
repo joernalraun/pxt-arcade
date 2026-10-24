@@ -71,6 +71,11 @@
     color: var(--pxt-primary-foreground);
 }
 
+/* Calliope edition: hardware is fixed to the Calliope mini (n3), hide "Choose Hardware" */
+#editortools .hw-button .menu .item:has(> .icon.microchip) {
+    display: none !important;
+}
+
 #simulator .ui.button.play-button .icon.play {
     color: var(--pxt-secondary-foreground)!important;
 }

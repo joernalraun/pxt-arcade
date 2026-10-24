@@ -400,7 +400,7 @@ namespace freethrow {
 
 
     /**
-    * Play sound effect in background
+    * Play soundeffect in background
     */
     //% blockId=play_sef
     //% block="`ICON.arrow-play-white` $thisSound"

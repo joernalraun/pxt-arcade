@@ -481,6 +481,23 @@ namespace pxt.editor {
             blocklyPatch: patchBlocks
         };
 
+        // Calliope edition: the hardware is always the Calliope mini V3 (nRF52833, "n3").
+        // Pinning the variant up front means the "Choose Hardware" dialog never opens and
+        // every download compiles to the n3 .hex instead of a PNG/UF2.
+        pxt.setHwVariant("n3", "Calliope mini");
+
+        // WebUSB flashing over DAPLink CMSIS-DAP v2 (Calliope mini V3, VID 0x0D28). The
+        // pxt-core default filter only matches HF2 consoles (class 0xFF / subclass 42), so
+        // we replace it with the DAPLink interfaces and use the DAPLink packet-io wrapper
+        // vendored from pxt-microbit (editor/flash.ts).
+        if (pxt.usb && pxt.usb.setFilters) {
+            pxt.usb.setFilters([
+                { vendorId: 0x0D28, productId: 0x0204, classCode: 0xff, subclassCode: 0x03 },
+                { vendorId: 0x0D28, productId: 0x0204, classCode: 0xff, subclassCode: 0x00 }
+            ]);
+            res.mkPacketIOWrapper = pxt.editor.flash.mkDAPLinkPacketIOWrapper;
+        }
+
         return Promise.resolve<pxt.editor.ExtensionResult>(res);
     }
 

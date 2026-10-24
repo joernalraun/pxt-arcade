@@ -170,6 +170,10 @@
             },
             "browser-events": {
                 "tags": [ "Controls" ]
+            },
+            "jacdac-multiplayer": {
+                "preferred": true,
+                "tags": [ "Gameplay", "Controls", "Hardware" ]
             }
         },
         "upgrades": {
@@ -422,7 +426,7 @@
         "John Park's Workshop": "john-parks-workshop"
     },
     "electronManifest": {
-        "latest": "v4.1.25"
+        "latest": "v4.0.11"
     },
     "teachertool": {
         "showSharePageEvalButton": true,

@@ -86,6 +86,8 @@
         "libs/hw---stm32f401",
         "libs/hw---rp2040",
         "libs/hw---vm",
+        "libs/jacdac",
+        "libs/jacdac-multiplayer",
         "libs/keyboard",
         "libs/light",
         "libs/lightsensor",
@@ -385,13 +387,20 @@
             "compile": {
                 "hasHex": true,
                 "openocdScript": "source [find interface/cmsis-dap.cfg]; source [find target/nrf52.cfg]",
-                "webUSB": false,
+                "webUSB": true,
                 "useUF2": false,
                 "deployDrives": ".*",
                 "deployFileMarker": "DETAILS.TXT",
                 "flashCodeAlign": 4096,
                 "flashUsableEnd": 471040,
-                "flashEnd": 524288
+                "flashEnd": 524288,
+                "hidSelectors": [
+                    {
+                        "usagePage": "0xFF00",
+                        "vid": "0x0d28",
+                        "pid": "0x0204"
+                    }
+                ]
             },
             "compileService": {
                 "buildEngine": "codal",
@@ -818,7 +827,7 @@
         "privacyUrl": "https://go.microsoft.com/fwlink/?LinkId=521839",
         "termsOfUseUrl": "https://go.microsoft.com/fwlink/?LinkID=206977",
         "githubUrl": "https://github.com/microsoft/pxt-arcade",
-        "boardName": "Arcade",
+        "boardName": "Calliope mini",
         "addNewTypeScriptFile": true,
         "docMenu": [
             {
@@ -907,8 +916,7 @@
             "image-editor",
             "tilemap-editor",
             "soundeffect-editor",
-            "music-editor",
-            "piano-roll-editor"
+            "music-editor"
         ],
         "scriptManager": true,
         "saveInMenu": false,
@@ -952,9 +960,6 @@
         "hasReferenceDocs": true,
         "python": true,
         "assetEditor": true,
-        "projectTools": true,
-        "whiteboard": true,
-        "backpack": true,
         "immersiveReader": true,
         "tutorialCodeValidation": true,
         "multiplayer": true,
@@ -979,7 +984,28 @@
             }
         ],
         "showProjectDescription": true,
-        "shareHomepageContent": true
+        "shareHomepageContent": true,
+        "downloadDialogTheme": {
+            "webUSBDeviceNames": [
+                "Calliope mini CMSIS-DAP",
+                "Calliope mini V3 CMSIS-DAP",
+                "DAPLink CMSIS-DAP",
+                "BBC micro:bit CMSIS-DAP",
+                "Calliope mini"
+            ],
+            "minimumFirmwareVersion": "0249",
+            "deviceIcon": "usb",
+            "deviceSuccessIcon": "check",
+            "dragFileImage": "/static/download/transfer.png",
+            "connectDeviceImage": "/static/download/connect.png",
+            "disconnectDeviceImage": "/static/download/full-reset.gif",
+            "selectDeviceImage": "/static/download/pair.png",
+            "connectionSuccessImage": "/static/download/connected.png",
+            "incompatibleHardwareImage": "/static/download/incompatible.png"
+        },
+        "boardNickname": "Calliope mini",
+        "driveDisplayName": "MINI",
+        "preferWebUSBDownload": true
     },
     "queryVariants": {
         "skillmap=1": {
